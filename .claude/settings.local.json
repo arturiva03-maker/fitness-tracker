@@ -6,7 +6,9 @@
       "Bash(git commit:*)",
       "Bash(gh repo create:*)",
       "Bash(npx vercel:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git push)",
+      "Bash(npm install:*)"
     ]
   }
 }
