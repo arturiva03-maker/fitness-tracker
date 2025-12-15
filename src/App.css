@@ -1,0 +1,277 @@
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.nav-tabs button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-tabs button.active {
+  background: #4a90d9;
+  color: white;
+}
+
+.nav-tabs button:hover:not(.active) {
+  background: #d0d0d0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4a90d9;
+  outline: none;
+}
+
+.sets-container {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.sets-container h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.set-number {
+  min-width: 70px;
+  font-weight: bold;
+  color: #555;
+}
+
+.set-row input {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.set-row input:focus {
+  border-color: #4a90d9;
+  outline: none;
+}
+
+.remove-btn {
+  padding: 8px 12px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.remove-btn:hover:not(:disabled) {
+  background: #ff5252;
+}
+
+.remove-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.add-set-btn {
+  width: 100%;
+  padding: 12px;
+  background: #66bb6a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.add-set-btn:hover {
+  background: #57a05a;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 15px;
+  background: #4a90d9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.save-btn:hover {
+  background: #3a7bc8;
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  padding: 40px;
+}
+
+.workout-day {
+  margin-bottom: 30px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.workout-day h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  border-bottom: 2px solid #4a90d9;
+  padding-bottom: 10px;
+}
+
+.workout-entry {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.workout-header strong {
+  font-size: 18px;
+  color: #333;
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: #ff5252;
+}
+
+.sets-list {
+  color: #555;
+}
+
+.set-display {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.set-display:last-child {
+  border-bottom: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .app {
+    background: #1a1a1a;
+  }
+
+  h1, .form-group label, .sets-container h3, .workout-day h3 {
+    color: #fff;
+  }
+
+  .form-group input,
+  .form-group select,
+  .set-row input {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+  }
+
+  .sets-container {
+    background: #2a2a2a;
+  }
+
+  .set-number {
+    color: #ccc;
+  }
+
+  .workout-day {
+    background: #2a2a2a;
+  }
+
+  .workout-entry {
+    background: #333;
+  }
+
+  .workout-header strong {
+    color: #fff;
+  }
+
+  .sets-list {
+    color: #ccc;
+  }
+
+  .set-display {
+    border-color: #444;
+  }
+
+  .no-data {
+    color: #888;
+  }
+}
