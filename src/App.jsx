@@ -162,36 +162,62 @@ function App() {
           {sortedDates.length === 0 ? (
             <p className="no-data">Noch keine Trainings eingetragen.</p>
           ) : (
-            sortedDates.map(date => (
-              <div key={date} className="workout-day">
-                <h3>{new Date(date).toLocaleDateString('de-DE', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}</h3>
-                {groupedWorkouts[date].map(workout => (
-                  <div key={workout.id} className="workout-entry">
-                    <div className="workout-header">
-                      <strong>{workout.exercise}</strong>
-                      <button
-                        className="delete-btn"
-                        onClick={() => deleteWorkout(workout.id)}
-                      >
-                        Löschen
-                      </button>
-                    </div>
-                    <div className="sets-list">
-                      {workout.sets.map((set, i) => (
-                        <div key={i} className="set-display">
-                          Satz {i + 1}: {set.weight} kg x {set.reps} Wdh
-                        </div>
-                      ))}
-                    </div>
+            sortedDates.map(date => {
+              const dayWorkouts = groupedWorkouts[date]
+              const maxSets = Math.max(...dayWorkouts.map(w => w.sets.length))
+
+              return (
+                <div key={date} className="workout-day">
+                  <h3>{new Date(date).toLocaleDateString('de-DE', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}</h3>
+                  <div className="workout-table-container">
+                    <table className="workout-table">
+                      <thead>
+                        <tr>
+                          <th>Übung</th>
+                          {[...Array(maxSets)].map((_, i) => (
+                            <th key={i}>Satz {i + 1}</th>
+                          ))}
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {dayWorkouts.map(workout => (
+                          <tr key={workout.id}>
+                            <td className="exercise-name">{workout.exercise}</td>
+                            {[...Array(maxSets)].map((_, i) => (
+                              <td key={i} className="set-cell">
+                                {workout.sets[i] ? (
+                                  <span className="set-data">
+                                    <span className="weight">{workout.sets[i].weight}kg</span>
+                                    <span className="reps">×{workout.sets[i].reps}</span>
+                                  </span>
+                                ) : (
+                                  <span className="empty-set">–</span>
+                                )}
+                              </td>
+                            ))}
+                            <td className="action-cell">
+                              <button
+                                className="delete-btn-small"
+                                onClick={() => deleteWorkout(workout.id)}
+                                title="Löschen"
+                              >
+                                ✕
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                ))}
-              </div>
-            ))
+                </div>
+              )
+            })
           )}
         </div>
       )}
